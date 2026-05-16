@@ -1,0 +1,16 @@
+{
+  "name": "Meridian Camera Tweaks",
+  "version": "1.0.0",
+  "main": "meridian.cameratweaks.CameraTweaksModule",
+  "priority": 100,
+  "updateUrl": "https://github.com/hyspy-dev/meridian-camera-tweaks/releases",
+  "dependsOn": {
+    "meridian-core": ">=0.2.0"
+  },
+  "requires": {
+    "services": [
+      "meridian.core.api.CameraControl",
+      "meridian.core.api.EntityTracker"
+    ]
+  }
+}
