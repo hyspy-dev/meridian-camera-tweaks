@@ -62,13 +62,13 @@ public class CameraTweaksModule implements ProxyModule {
 
         // Declarative settings — the proxy renders and persists them; each
         // callback fires with the persisted value at startup and on every edit.
+        // The active camera mode is session-only (always DEFAULT on a restart),
+        // but the dialled-in distances/shifts are tuning the user wants back.
         ctx.registerSettings(SettingsSpec.builder()
                 .enum_("mode", "Camera Mode", CameraMode.class, CameraMode.DEFAULT, v -> {
                     mode = v;
                     apply();
                 })
-                // Session-only — the camera always starts in DEFAULT on a restart.
-                .ephemeral()
                 .section("Third Person", SettingsSpec.builder()
                         .int_("tpDistance", "Distance", 1, 20, 4, v -> {
                             thirdPersonDistance = v;
@@ -118,6 +118,9 @@ public class CameraTweaksModule implements ProxyModule {
                             camera.autoGrantFreecam(v);
                         })
                         .build())
+                .persistent("tpDistance", "shiftX", "shiftY", "shiftZ", "inverted",
+                        "target", "followDistance", "followShiftX", "followShiftY", "followShiftZ",
+                        "autoGrantKey")
                 .build());
 
         log.info("meridian-camera-tweaks enabled — backed by meridian-core CameraControl");
