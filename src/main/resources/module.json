@@ -1,6 +1,6 @@
 {
   "name": "Meridian Camera Tweaks",
-  "version": "1.0.0",
+  "version": "${project.version}",
   "main": "meridian.cameratweaks.CameraTweaksModule",
   "priority": 100,
   "updateUrl": "https://github.com/hyspy-dev/meridian-camera-tweaks/releases",
